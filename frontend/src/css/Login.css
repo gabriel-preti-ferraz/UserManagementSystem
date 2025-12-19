@@ -1,8 +1,14 @@
 :root {
     --gradient: linear-gradient(90deg,#bed3dc 0%,#cad9d4 100%);
     --color1: #414141;
+    --color2: #9ca3af;
     --shadow: rgba(0, 0, 0, 0.1);
     --background1: #f7f7f7;
+    --a: #5292dc;
+}
+
+h5 {
+    margin: 0;
 }
 
 .login-wrapper {
@@ -42,6 +48,7 @@
 
 .login-card > form {
     width: 100%;
+    margin: 15px;
 }
 
 .text-field {
@@ -82,4 +89,88 @@ form > button {
     cursor: pointer;
     transition: 0.7s;
     background-color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+form > button > span {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 5%;
+    font-size: 25pt;
+}
+
+h5 > a {
+    color: #5292dc;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--color2);
+    font-size: 12pt;
+    margin: 22px;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1.2px;
+    background-color: #d1d5db;
+}
+
+.divider span {
+    margin: 0 12px;
+    white-space: nowrap;
+}
+
+.google {
+    width: 100%;
+    padding: 10px 25px;
+    box-shadow: 0px 5px 15px var(--shadow);
+    border: none;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 16pt;
+    color: var(--color1);
+    outline: none;
+    cursor: pointer;
+    transition: 0.7s;
+    background-color: var(--background1);
+    margin-top: 7px;
+    margin-bottom: 10px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 12px;
+}
+
+.google > span {
+    display: flex;
+    align-items: center;
+    font-size: 27pt;
+}
+
+@media only screen and (max-width: 950px) {
+    .login-card {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .login-card {
+        width: 90%;
+    }
 }

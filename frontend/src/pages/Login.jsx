@@ -1,4 +1,6 @@
 import '../css/Login.css'
+import { BsArrowRightShort } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
 
 function Login() {
     return (
@@ -13,11 +15,12 @@ function Login() {
                     <div className='text-field'>
                         <input type="password" name="password" placeholder='Password' required/>
                     </div>
-                    <button type="submit">Login</button>
+                    <button type="submit">Log in <span><BsArrowRightShort /></span></button>
                 </form>
-                <h4><a href="">Forgot password?</a></h4>
-                <p>------or-----</p>
-                <button className='google'><img src=""/> Sign In with Google</button>
+                <h5 className='forgot-h5'><a href="">Forgot password?</a></h5>
+                <div className='divider'><span>or</span>
+                </div>
+                <button className='google'><span><FcGoogle /></span> Sign In with Google</button>
             </div>
         </div>
     )
@@ -25,7 +28,6 @@ function Login() {
 
 export default Login
 
-// TODO: OR paragraph
 // TODO: Google logo
 // TODO: Sign up href
 // TODO: Forgot password href
