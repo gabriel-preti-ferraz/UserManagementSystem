@@ -28,6 +28,5 @@ function Login() {
 
 export default Login
 
-// TODO: Google logo
 // TODO: Sign up href
 // TODO: Forgot password href
