@@ -23,6 +23,7 @@ function Login() {
         try {
             const data = await LoginAPI(values.email, values.password)
             reset()
+            setError("")
         } catch (err) {
             if (err.response && err.response.data && err.response.data.message) {
                 setError(err.response.data.message)
