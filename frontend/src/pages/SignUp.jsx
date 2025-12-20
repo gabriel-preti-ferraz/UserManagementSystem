@@ -27,6 +27,15 @@ function SignUp() {
                 />
 
                 <TextField
+                    name="user"
+                    type="text"
+                    placeholder="Username"
+                    required
+                    value={user}
+                    onChange={(e) => setUser(e.target.value)}
+                />                
+
+                <TextField
                     name="password"
                     placeholder="Password"
                     required
