@@ -1,0 +1,179 @@
+:root {
+    --gradient: linear-gradient(90deg,#bed3dc 0%,#cad9d4 100%);
+    --color1: #414141;
+    --color2: #9ca3af;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --background1: #f7f7f7;
+    --a: #5292dc;
+}
+
+a {
+    color: #5292dc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h5 {
+    margin: 0;
+}
+
+.signup-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: var(--gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-card {
+    background-color: #fff;
+    box-shadow: 0 0 10px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px;
+    border-radius: 20px;
+    width: 25%;
+}
+
+.signup-card > h1 {
+    color: var(--color1);
+    font-size: 44px;
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+}
+
+.signup-card > h5 {
+    color: var(--color1);
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.signup-card > form {
+    width: 100%;
+    margin: 15px;
+}
+
+.text-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 15px 0px;
+}
+
+.text-field > input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 5px 15px var(--shadow);
+    background-color: var(--background1);
+    margin-bottom: 10px;
+}
+
+.text-field > input::placeholder {
+    font-weight: 550;
+    font-size: 12.5pt;
+}
+
+form > button {
+    width: 100%;
+    padding: 10px 25px;
+    box-shadow: 0px 12.5px 15px var(--shadow);
+    border: none;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 550;
+    font-size: 16pt;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: 0.7s;
+    background-color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+form > button > span {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 5%;
+    font-size: 25pt;
+}
+
+h5 > a {
+    font-weight: 400;
+}
+
+.check-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.check-field > input {
+    display: none;
+}
+
+.check-field > span {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #2563eb;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.check-field > span::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    left: 5px;
+    top: 1px;
+    transition: transform 0.2s ease;
+}
+
+.check-field > input:checked + span {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    transform: scale(1.05);
+}
+
+.check-field> input:checked + span::after {
+    transform: rotate(45deg) scale(1);
+}
+
+@media only screen and (max-width: 950px) {
+    .signup-card {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .signup-card {
+        width: 90%;
+    }
+
+    .check-field > span {
+        width: 24px;
+    }
+}
