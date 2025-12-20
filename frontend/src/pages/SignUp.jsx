@@ -6,7 +6,7 @@ function SignUp() {
         <div className='signup-wrapper'>
             <div className='signup-card'>
                 <h1>Create account</h1>
-                <h5>Already have an account? <a href="">Sign in</a></h5>
+                <h5>Already have an account? <a href="/login">Sign in</a></h5>
                 <form action="">
                     <div className='text-field'>
                         <input type="email" name="email" placeholder='E-mail' required/>
