@@ -1,5 +1,4 @@
 import "../css/PassRecovery.css"
-import { BsArrowLeftShort } from "react-icons/bs"
 
 function PassRecovery() {
     return (
