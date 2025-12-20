@@ -4,6 +4,15 @@
     font-weight: normal;
 }
 
+:root {
+    --gradient: linear-gradient(90deg,#bed3dc 0%,#cad9d4 100%);
+    --color1: #414141;
+    --color2: #9ca3af;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --background1: #f7f7f7;
+    --a: #5292dc;
+}
+
 body {
   margin: 0;
   font-family: 'Mazzard', sans-serif;
@@ -12,4 +21,17 @@ body {
 
 body * {
   box-sizing: border-box;
+}
+
+h5 {
+    margin: 0;
+}
+
+a {
+    color: #5292dc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
