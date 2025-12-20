@@ -33,6 +33,4 @@ function PassRecovery() {
     )
 }
 
-//TODO: divider margin
-
 export default PassRecovery
