@@ -11,3 +11,5 @@ const client = new Client({
 })
 
 client.connect().then(() => console.log("Database connected"))
+
+export default client
