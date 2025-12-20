@@ -7,12 +7,20 @@ import Divider from "../components/Divider"
 import Wrapper from "../components/Wrapper"
 import PasswordField from '../components/PasswordField'
 import { useFormState } from '../hooks/useFormState'
+import axios from 'axios'
 
 function Login() {
     const { values, handleChange } = useFormState({
         email: '',
         password: '',
     })
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios.post('http://localhost:8080/login')
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
 
     return (
         <Wrapper 
@@ -21,6 +29,10 @@ function Login() {
                 <h5>Don't have an account? <a href="/signup">Sign up</a></h5>
             </>}
 
+            formProps={{
+                onSubmit: handleSubmit,
+            }}
+            
             formContent={<>
                 <TextField
                     name="email"
