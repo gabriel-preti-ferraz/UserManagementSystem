@@ -11,13 +11,13 @@
     display: flex;
 }
 
-a {
+.nav-wrapper a {
     margin: 15px;
     color: var(--color1);
     font-size: 16pt;
 }
 
-a:hover {
+.nav-wrapper a:hover {
     transform: scale(1.1);
     text-decoration: none;
     transition: .2s;
