@@ -1,3 +1,7 @@
+#dash-card {
+    width: 75%;
+}
+
 .search-container {
     width: 50%;
 }
@@ -45,4 +49,32 @@
 
 .user-button {
     margin-bottom: 0;
+}
+
+@media only screen and (max-width: 950px) {
+    .user-card {
+        width: 85%;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    #dash-card {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .user-card {
+        width: 90%;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    #dash-card {
+        width: 95%;
+    }
 }

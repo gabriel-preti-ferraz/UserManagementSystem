@@ -7,7 +7,7 @@ function Dashboard() {
     return (
         <Wrapper
             wrapperProps={{ style: {paddingTop: "5%"}}}
-            cardProps={{ style: { width: "70%" } }}
+            cardProps={{id: "dash-card"}}
         >
             <div className="search-container">
                 <TextField
@@ -30,7 +30,6 @@ function Dashboard() {
                     </div>
                     <button className="user-button">Edit User</button>
                 </div>
-
             </div>
         </Wrapper>
     )
