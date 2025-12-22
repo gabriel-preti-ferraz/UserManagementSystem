@@ -6,7 +6,7 @@ import TextField from "../components/TextField"
 function Dashboard() {
     return (
         <Wrapper
-            wrapperProps={{ style: {paddingTop: "5%"}}}
+            wrapperProps={{ style: {paddingTop: "2%"}}}
             cardProps={{id: "dash-card"}}
         >
             <div className="search-container">
