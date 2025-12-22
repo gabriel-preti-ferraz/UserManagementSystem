@@ -1,9 +1,9 @@
-function Form({formContent, formProps}) {
+function Form({ children, formProps }) {
     return (
-        <form {...formProps}>
-            {formContent}
+        <form style={{ width: "100%", margin: "15px" }} {...formProps}>
+            {children}
         </form>
     )
 }
 
-export default Form()
+export default Form

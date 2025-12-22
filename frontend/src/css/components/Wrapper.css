@@ -37,11 +37,6 @@
     font-weight: 400;
 }
 
-.card > form {
-    width: 100%;
-    margin: 15px;
-}
-
 @media only screen and (max-width: 950px) {
     .card {
         width: 85%;

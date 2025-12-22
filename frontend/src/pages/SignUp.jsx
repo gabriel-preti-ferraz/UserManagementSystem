@@ -2,6 +2,7 @@ import "../css/SignUp.css"
 import { BsArrowRightShort } from "react-icons/bs"
 import { useState } from "react"
 import Wrapper from "../components/Wrapper"
+import Form from "../components/Form"
 import TextField from "../components/TextField"
 import Button from "../components/Button"
 import PasswordField from "../components/PasswordField"
@@ -46,12 +47,10 @@ function SignUp() {
         <Wrapper
             headerContent={<>
                 <h1>Create account</h1>
-                <h5>Already have an account? <a href="/login">Sign in</a></h5>
+                <h5>Already have an account? <a href="/login">Sign in</a></h5>  
             </>}
-
-            formProps={{onSubmit: handleSubmit}}
-            
-            formContent={<>
+        >
+            <Form formProps={{onSubmit: handleSubmit}}>
                 <TextField
                     name="email"
                     type="email"
@@ -100,8 +99,8 @@ function SignUp() {
                     span={<BsArrowRightShort />}
                     text="Sign Up"
                 />
-            </>}
-        />
+            </Form>
+        </Wrapper>
     )
 }
 

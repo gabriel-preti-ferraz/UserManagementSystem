@@ -6,6 +6,7 @@ import Button from "../components/Button"
 import Divider from "../components/Divider"
 import Wrapper from "../components/Wrapper"
 import PasswordField from '../components/PasswordField'
+import Form from "../components/Form"
 import { useFormState } from '../hooks/useFormState'
 import { LoginAPI } from '../services/api'
 import { useState } from "react"
@@ -34,17 +35,24 @@ function Login() {
     }
 
     return (
-        <Wrapper 
+        <Wrapper
             headerContent={<>
                 <h1>Log in to <br />your account</h1>
                 <h5>Don't have an account? <a href="/signup">Sign up</a></h5>
             </>}
 
-            formProps={{
-                onSubmit: handleSubmit,
-            }}
-            
-            formContent={<>
+            footContent={<>
+                <h5 className='forgot-h5'><a href="/pass-recovery">Forgot password?</a></h5>
+                <Divider text="or" />
+                <Button
+                    className="google"
+                    icon="left"
+                    span={<FcGoogle />}
+                    text="Sign In with google"
+                />
+            </>}
+        >
+            <Form formProps={{onSubmit: handleSubmit,}}>
                 <TextField
                     name="email"
                     type="email"
@@ -70,19 +78,8 @@ function Login() {
                     span={<BsArrowRightShort />}
                     text="Log in"
                 />
-            </>}
-
-            footContent={<>
-                <h5 className='forgot-h5'><a href="/pass-recovery">Forgot password?</a></h5>
-                <Divider text="or" />
-                <Button
-                    className="google"
-                    icon="left"
-                    span={<FcGoogle />}
-                    text="Sign In with google"
-                />
-            </>}
-        />
+            </Form>
+        </Wrapper>
     )
 }
 
