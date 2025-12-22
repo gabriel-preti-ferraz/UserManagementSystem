@@ -1,0 +1,9 @@
+.search-container {
+    width: 100%;
+}
+
+.dash-button > span {
+    position: absolute;
+    right: 25px;
+    font-size: 18pt;
+}
