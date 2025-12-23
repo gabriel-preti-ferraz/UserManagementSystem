@@ -23,6 +23,7 @@ function Login() {
         
         try {
             const data = await LoginAPI(values.email, values.password)
+            localStorage.setItem("token", data.token)
             reset()
             setError("")
         } catch (err) {
