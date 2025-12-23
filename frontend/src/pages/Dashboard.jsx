@@ -2,12 +2,14 @@ import "../css/Dashboard.css"
 import Wrapper from "../components/Wrapper"
 import { BsSearch } from "react-icons/bs"
 import TextField from "../components/TextField"
-import { UserListAPI, UserEditAPI, UserDeleteAPI } from "../services/api"
+import Form from "../components/Form"
+import { UserListAPI, UserEditAPI, UserDeleteAPI, SearchUserAPI } from "../services/api"
 import { useState, useEffect } from "react"
 
 function Dashboard() {
     const [error, setError] = useState(null)
     const [users, setUsers] = useState([])
+    const [searchQuery, setSearchQuery] = useState("")
     const [selectedUser, setSelectedUser] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -64,9 +66,23 @@ function Dashboard() {
                 window.location.reload()
                 alert("User deleted!")
             } catch (err) {
-                console.log(er)
-                alert("An erro occured while deleting the user.")
+                console.log(err)
+                alert("An error occured while deleting the user.")
             }
+        }
+    }
+
+    const handleSearch = async (e) => {
+        e.preventDefault()
+        if (!searchQuery.trim()) return
+        
+        try {
+            const searchResults = await SearchUserAPI(searchQuery)
+            setUsers(searchResults)
+            setError(null)
+        } catch (err) {
+            console.log(err)
+            setError("Failed to search user...")
         }
     }
 
@@ -76,19 +92,23 @@ function Dashboard() {
             cardProps={{id: "dash-card"}}
         >
             <div className="search-container">
-                <TextField
-                    type="text"
-                    name="search"
-                    placeholder="Search for a User"
-                >
-                    <button className="dash-button" type="submit">Search <span><BsSearch /></span></button>
-                </TextField>
+                <Form formProps={{onSubmit: handleSearch}}>
+                    <TextField
+                        type="text"
+                        name="search"
+                        placeholder="Search for a User"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    >
+                        <button className="dash-button">Search <span><BsSearch /></span></button>
+                    </TextField>
+                </Form>
                 {error && <p  style={{ color: "red", fontSize: "0.9rem", marginTop: "4px", textAlign: "center" }}>{error}</p>}
             </div>
             
             <div className="users-field">
                 {users.map((user) => (
-                    <div className="user-card">
+                    <div className="user-card" key={user.id}>
                         <div className="user-info">
                             <h2>{user.username}</h2>
                             <p style={{textTransform: "capitalize"}}>{user.role}</p>

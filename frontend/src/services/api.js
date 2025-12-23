@@ -36,3 +36,8 @@ export async function UserDeleteAPI(id) {
     const response = await api.delete(`/users/${id}`)
     return response.data
 }
+
+export async function SearchUserAPI(username) {
+    const response = await api.get(`/users/${username}`)
+    return response.data
+}
