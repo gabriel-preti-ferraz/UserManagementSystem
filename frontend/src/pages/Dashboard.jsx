@@ -11,8 +11,6 @@ function Dashboard() {
     const [selectedUser, setSelectedUser] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
-    //TODO: overflow respnsive
-
     useEffect(() => {
         const loadUsers = async () => {
             try {
