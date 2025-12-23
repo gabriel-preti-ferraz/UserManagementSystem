@@ -10,8 +10,11 @@ import Form from "../components/Form"
 import { useFormState } from '../hooks/useFormState'
 import { LoginAPI } from '../services/api'
 import { useState } from "react"
+import {useNavigate} from "react-router-dom"
 
 function Login() {
+    const navigate = useNavigate()
+
     const [ error, setError ] = useState("")
     const { values, handleChange, reset } = useFormState({
         email: '',
@@ -24,8 +27,7 @@ function Login() {
         try {
             const data = await LoginAPI(values.email, values.password)
             localStorage.setItem("token", data.token)
-            reset()
-            setError("")
+            navigate("/dashboard")
         } catch (err) {
             if (err.response && err.response.data && err.response.data.message) {
                 setError(err.response.data.message)
