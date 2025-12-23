@@ -5,6 +5,8 @@ import cors from "cors"
 import client from "./db.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import verifyToken from "./middlewares/verifyToken.js"
+import verifyAdmin from "./middlewares/verifyAdmin.js"
 
 app.use(express.json())
 app.use(cors())
@@ -51,47 +53,13 @@ app.post('/login', async (req, res) => {
     }
 })
 
-function verifyToken(req, res, next) {
-    const token = req.headers.authorization && req.headers.authorization.split(" ")[1]
-
-    if (!token) {
-        return res.status(401).json({message: "Missing Token"})
-    }
-
-    try {
-        const decoded = jwt.verify(token, process.env.SECRET_KEY)
-        req.user = decoded
-        next()
-    } catch (error) {
-        console.error("Token verification failed:", error.message)
-        res.status(401).json({message: "Invalid Token"})
-    }
-}
-
 app.get("/userinfo", verifyToken, (req, res) => {
     res.json({user: req.user})
 })
 
-function verifyAdmin(req, res, next) {
-    const token = req.headers.authorization && req.headers.authorization.splt(" ")[1]
-    if (!token) return res.status(401).json({message: "Missing Token"})
-    
-    try {
-        const decoded = jwt.verify(token, process.env.SECRET_KEY)
-        if (decoded.role !== "admin") {
-            return res.status(403).json({message: "Access denied"})
-        }
-        req.user = decoded
-        next()
-    } catch (error) {
-        console.error("Token verification failed:", error.message)
-        res.status(401).json({message: "Invalid Token"})
-    }
-}
-
 //TODO: verifyAdmin
 
-app.get("/users", async (req, res, verifyAdmin) => {
+app.get("/users", verifyAdmin, async (req, res) => {
     try {
         const result = await client.query("SELECT id, username, email, role FROM users")
         res.json(result.rows)
@@ -100,7 +68,7 @@ app.get("/users", async (req, res, verifyAdmin) => {
     }
 })
 
-app.get("/users/:id", async (req, res, verifyAdmin) => {
+app.get("/users/:id", verifyAdmin, async (req, res) => {
     try {
         const {id} = req.params
         const result = await client.query("SELECT id, usename, email, role FROM users where id =$1", [id])
@@ -110,7 +78,7 @@ app.get("/users/:id", async (req, res, verifyAdmin) => {
     }
 })
 
-app.put("/users/:id", async (req, res, verifyAdmin) => {
+app.put("/users/:id", verifyAdmin, async (req, res) => {
     try {
         const {id} = req.params
         const {username, email, role} = req.body
@@ -121,7 +89,7 @@ app.put("/users/:id", async (req, res, verifyAdmin) => {
     }
 })
 
-app.delete("/users/:id", async (req, res, verifyAdmin) => {
+app.delete("/users/:id", verifyAdmin, async (req, res) => {
     try {
         const {id} = req.params
         await client.query("DELETE FROM uses WHERE id = $1", [id])
