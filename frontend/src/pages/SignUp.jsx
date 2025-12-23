@@ -8,8 +8,11 @@ import Button from "../components/Button"
 import PasswordField from "../components/PasswordField"
 import { useFormState } from '../hooks/useFormState'
 import { RegisterAPI, LoginAPI } from "../services/api"
+import {useNavigate} from "react-router-dom"
 
 function SignUp() {
+    const navigate = useNavigate()
+
     const { values, handleChange } = useFormState({
             email: '',
             password: '',
@@ -33,7 +36,7 @@ function SignUp() {
         try {
             await RegisterAPI(values.username, values.email, values.password)
             const loginData = await LoginAPI(values.email, values.password)
-            localStorage.setItem("token", loginData.token())
+            localStorage.setItem("token", loginData.token)
             navigate("/dashboard")
         } catch (error) {
             if (error.response && error.response.data && error.response.data.message) {
