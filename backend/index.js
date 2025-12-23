@@ -57,8 +57,6 @@ app.get("/userinfo", verifyToken, (req, res) => {
     res.json({user: req.user})
 })
 
-//TODO: verifyAdmin
-
 app.get("/users", verifyAdmin, async (req, res) => {
     try {
         const result = await client.query("SELECT id, username, email, role FROM users")
