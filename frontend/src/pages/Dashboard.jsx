@@ -25,7 +25,7 @@ function Dashboard() {
 
     return (
         <Wrapper
-            wrapperProps={{ style: {paddingTop: "2%"}}}
+            wrapperProps={{ id: "dash-wrapper"}}
             cardProps={{id: "dash-card"}}
         >
             <div className="search-container">

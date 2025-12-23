@@ -4,7 +4,8 @@
     background: var(--gradient);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 120px;
 }
 
 .card {
@@ -40,10 +41,15 @@
 @media only screen and (max-width: 950px) {
     .card {
         width: 85%;
+        padding: 30px;
     }
 }
 
 @media only screen and (max-width: 600px) {
+    .wrapper {
+        padding-top: 30px;
+    }
+
     .card {
         width: 90%;
     }

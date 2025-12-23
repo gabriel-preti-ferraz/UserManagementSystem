@@ -1,9 +1,13 @@
+#dash-wrapper {
+    padding-top: 2%;
+}
+
 #dash-card {
     width: 75%;
 }
 
 .search-container {
-    width: 50%;
+    width: 75%;
 }
 
 .dash-button > span {
@@ -76,5 +80,9 @@
 
     #dash-card {
         width: 95%;
+    }
+
+    #dash-wrapper {
+        padding-top: 40px;
     }
 }

@@ -9,6 +9,8 @@ function Navbar() {
         navigate("/login")
     }
 
+    // TODO: dashboard route protect
+
     return (
         <div className="nav-wrapper">
             <div className="nav-left">
