@@ -9,6 +9,8 @@ function Dashboard() {
     const [error, setError] = useState(null)
     const [users, setUsers] = useState([])
 
+    //TODO: overflow respnsive
+
     useEffect(() => {
         const loadUsers = async () => {
             try {
@@ -42,9 +44,6 @@ function Dashboard() {
             <div className="users-field">
                 {users.map((user) => (
                     <div className="user-card">
-                        <div className="user-photo">
-                            <img src={user.photo} alt={user.username}/>
-                        </div>
                         <div className="user-info">
                             <h2>{user.username}</h2>
                             <p style={{textTransform: "capitalize"}}>{user.role}</p>
