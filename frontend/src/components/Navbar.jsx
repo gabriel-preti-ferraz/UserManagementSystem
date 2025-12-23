@@ -1,6 +1,14 @@
 import "../css/components/Navbar.css"
+import {useNavigate} from "react-router-dom"
 
 function Navbar() {
+    const navigate = useNavigate()
+
+    function handleLogout() {
+        localStorage.removeItem("token")
+        navigate("/login")
+    }
+
     return (
         <div className="nav-wrapper">
             <div className="nav-left">
@@ -9,6 +17,7 @@ function Navbar() {
             <div className="nav-right">
                 <a href="/login">Login</a>
                 <a href="/signup">Signup</a>
+                <button  id="logout-button" onClick={handleLogout}>Logout</button>
             </div>
         </div>
     )
